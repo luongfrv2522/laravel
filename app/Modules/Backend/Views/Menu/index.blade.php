@@ -25,7 +25,7 @@
 			if($menus){
 				echo('<ul>');
 				foreach($menus as $key => $el){
-					echo '<li level="'.$lvl.'"><a href="#" onclick="return alert(\'a\')" url="'.htmlspecialchars($el->route).'">'.htmlspecialchars($el->name).'</a>';
+					echo '<li class="">'.htmlspecialchars($el->name);
 					showMenusRecursion($menus0, $el->id, $lvl+1);
 					echo '</li>';
 				}	
@@ -46,7 +46,24 @@
 <script src="easy-tree/jquery.easytree.min.js"></script>
 	
 <script>
-	$('#demo1_menu').ul
-	$('#demo1_menu').easytree();
+	//#region Tree build
+	$('#demo1_menu li').has('ul').addClass('isFolder');
+	$('#demo1_menu').easytree({
+		allowActivate: true,
+        //data: [],
+        //dataUrl: '/server/treeData',
+        //dataUrlJson: '{"page":"/"}',
+        disabledDnd: false,
+        disableIcons: false,
+        ordering: 'ordered DESC',
+        slidingTime: 0,
+        minOpenLevels: 2
+	});
+	//#endregion
+	//#region Tree evet
+	getMenu = function(e){
+		e.preventDefault();
+	}
+	//
 </script>
 @endsection
