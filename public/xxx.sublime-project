@@ -1,0 +1,9 @@
+{
+	"settings":
+	{
+		"xdebug":
+		{
+			"url": "http://laravel-master-test.com/admin"
+		}
+	}
+}
