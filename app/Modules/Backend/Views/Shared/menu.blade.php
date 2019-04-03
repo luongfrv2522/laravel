@@ -32,7 +32,7 @@ if(Cache::has(Configs::KEY_CACHE_MENU)){
 					if($lvl === 0){
 						$UI.= '<div class="menu_section"><h3>'.htmlspecialchars($el->name).'</h3>';
 					}elseif($lvl === 1){
-						$url = ($el->route)? route(htmlspecialchars($el->route)) : '#';
+						$url = ($el->route)? 'admin'.htmlspecialchars($el->url) : '#';
 						$UI.= ('<li><a href="'.$url.'"><i class="'.htmlspecialchars($el->icon_class).'"></i>'.htmlspecialchars($el->name).' <span class="fa fa-chevron-left"></span></a>');
 					}elseif($lvl === 2){
 						$UI.= '<li><a href="index.html">'.htmlspecialchars($el->name).'</a></li>';

@@ -75,20 +75,33 @@
 		<div class="right_col" role="main">
 			<div class="">
 				<div class="page-title">
-					<div class="title_left">
-						@yield('body')
-					</div>
-				</div>
+	              <div class="title_left">
+	                <h3>@yield('title-left', 'Title left')</h3>
+	              </div>
+
+	              <div class="title_right">
+	                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+	                  {{-- <div class="input-group">
+	                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+	                    <span class="input-group-btn">
+	                      <button class="btn btn-default" type="button">Tìm</button>
+	                    </span>
+	                  </div> --}}
+	                </div>
+	              </div>
+	            </div>
+	            <div class="clearfix"></div>
+            	@yield('body')
 			</div>
 		</div>
+		
         <!-- /page content -->
 
-        
-      </div>
-    </div>
-    <!-- footer content -->
-	@include('Backend::shared.footer')
-    <!-- /footer content -->
+        <!-- footer content -->
+		@include('Backend::shared.footer')
+		<!-- /footer content -->
+    </div>	
+</div>
 
 	<!-- scripts -->
 	<!-- jQuery -->

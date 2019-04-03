@@ -1,4 +1,4 @@
-{{-- <div class="profile clearfix">
+<div class="profile clearfix">
 	<div class="profile_pic">
 		<img src="{{ Auth::user()->image }}" alt="..." class="img-circle profile_img">
 	</div>
@@ -6,4 +6,4 @@
 		<span>Quản trị viên</span>
 		<h2>{{ Auth::user()->name }}</h2>
 	</div>
-</div> --}}
+</div>

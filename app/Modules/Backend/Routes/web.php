@@ -1,5 +1,18 @@
 <?php
 
+// Route::get('/table',function(){
+// 	Schema::create('menu_types',function($table){
+// 		$table->increments('id');
+// 		$table->string('name',100);
+// 		//$table->timestamps();
+// 	});
+// 	echo "tạo bảng menu_types";
+// });
+
+Route::get('test',function(){
+	return view('Backend::test');
+});
+
 Route::group(['prefix' => 'account'], function (){
 	Route::get('/login', 'AccountController@login')->name('login');
 	Route::post('/login', 'AccountController@postLogin')->name('loginpost');
