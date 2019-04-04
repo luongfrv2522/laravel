@@ -36,7 +36,8 @@
 	
 	<!-- Custom Theme Style -->
 	<link rel="stylesheet" href="css/custom.min.css">
-
+	<!-- My Global Style -->
+	<link rel="stylesheet" href="css/global.css">
 	<!-- ebd -->
 	@yield('styles')
 </head>
@@ -117,6 +118,8 @@
 
 	<!-- Custom Theme Scripts -->
 	<script src="js/custom.min.js"></script>
+	<!-- My Global Scripts -->
+	<script src="js/global.js"></script>
 	{{-- ebd --}}
 	@yield('scripts')
   </body>

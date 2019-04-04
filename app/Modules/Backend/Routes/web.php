@@ -32,5 +32,9 @@ Route::group(['middleware'=>'myauth'],function(){
 
 	Route::group(['prefix' => 'menu'], function (){
 		Route::get('/index', 'MenuController@index')->name('menu.index');
+		Route::get('/json-menu', 'MenuController@getJsonMenu')->name('menu.json-menu');
+		Route::post('/add-menu', 'MenuController@postAddMenu')->name('menu.add-menu');
+		Route::post('/update-menu', 'MenuController@postUpdateMenu')->name('menu.update-menu');
+
 	});
 });
