@@ -71,6 +71,8 @@
 						<div id="demo1_menu" style="border: 1px solid;">
 						    
 						</div>
+						<div class="ln_solid"></div>
+						<button type="button" value="delete" class="btn btn-success">Xóa</button>
 					</div>
 				</div>
 			</div>
@@ -85,30 +87,48 @@
 	
 <script>
 	$(document).ready(function() {
-		$('button[type="submit"]').click(function(event) {
+		$('button[value="delete"]').click(function(event) {
+			let uri = '{{route('menu.delete',':id')}}';
+			let id = $('#id').val();
+			let name = $('#name').attr('origin');
+			if(id > 0){
+				let flag = confirm(`Bạn chắc chắn muốn xóa danh mục: ${ name }?`);
+				uri = uri.replace(':id',id);
+				if(flag){
+					$.get(uri,function(data){
+						console.log(data.message);
+						window.location.reload();
+					});
+				}
+			}
+		});
+		$('#menu-form').submit(function(){
 			event.preventDefault();
 			let data = {
 				"_token": "{{ csrf_token() }}",
+				id : $('#id').val(),
 				name : $('#name').val().trim(),
 				route: $('#route').val().trim(),
-				parent_id : $('#parent_id').val().trim(),
+				parent_id : $('#parent_id').val(),
 				icon_class : $('#icon_class').val().trim()
 			}
-			let url = '{{ route('menu.add-menu') }}'
-			if(this.value === 'update')	url = '{{ route('menu.update-menu') }}';
+
+			let url = '{{ route('menu.add') }}'
+			if(this.value === 'update')	url = '{{ route('menu.update') }}';
 			$.ajax({
 				url : url,
 				contentType : 'application/json',
 				method : 'post',
 				data : JSON.stringify(data),
 				success : function(data){
-					debugger
+					console.log(data.message);
 				},
 				error : function(err){
-
+					console.log(err);
 				},
 				complete : function(){
-
+					//$('#demo1_menu').jstree(true).refresh();
+					window.location.reload();
 				}
 			});
 		});
@@ -139,11 +159,14 @@
 	});
 	//#region Tree evet
 	function callChangeInfoAjax(node){
+		//console.log(node);
+		$('#id').val(node.id);
 		$('#name').val(node.text);
+		$('#name').attr('origin',node.text);
 		$('#route').val(node.data.url);
 		$('#icon_class').val(node.data.icon_class);
 		$('#icon_class').trigger('change');
-		$('#parent_id').val(node.parent!=='#'?node.parent:0);
+		$('#parent_id').val(node.parent);
 	}
 	//
 </script>
