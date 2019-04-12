@@ -59,7 +59,7 @@
 							<div class="form-group">
 								<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3">
 									<button type="submit" value="add" class="btn btn-primary">Thêm mới</button>
-									<button type="reset" class="btn btn-primary">Reset</button>
+									<button type="reset" class="btn btn-primary">Nhập lại</button>
 									<button type="submit" value="update" class="btn btn-success">Cập nhật</button>
 								</div>
 							</div>
