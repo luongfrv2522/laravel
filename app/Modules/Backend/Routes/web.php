@@ -13,6 +13,25 @@ Route::get('test',function(){
 	return view('Backend::test');
 });
 
+Route::get('model/{fk_item_id?}/{fk_type_id?}',function($fk_item_id=null, $fk_type_id=null){
+	$msg = 'Không vấn đề.';
+	if ($fk_item_id) {
+		$item = App\Item::find($fk_item_id);
+		if($fk_type_id){
+			$types = $item->types();
+			if(!$types->find($fk_type_id)){
+				$types->attach($fk_type_id);
+			}else{
+				$types->detach($fk_type_id);
+			}
+			
+		}
+		return json_encode($item->types->all());
+	}
+	$model = App\Item::all();
+	return json_encode($model);
+});
+
 Route::group(['prefix' => 'account'], function (){
 	Route::get('/login', 'AccountController@login')->name('login');
 	Route::post('/login', 'AccountController@postLogin')->name('loginpost');

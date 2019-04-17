@@ -114,6 +114,7 @@
 			}
 
 			let url = '{{ route('menu.add') }}'
+			debugger
 			if(this.value === 'update')	url = '{{ route('menu.update') }}';
 			$.ajax({
 				url : url,
@@ -159,11 +160,11 @@
 	});
 	//#region Tree evet
 	function callChangeInfoAjax(node){
-		//console.log(node);
+		console.log(node);
 		$('#id').val(node.id);
 		$('#name').val(node.text);
 		$('#name').attr('origin',node.text);
-		$('#route').val(node.data.url);
+		$('#route').val(node.data.route);
 		$('#icon_class').val(node.data.icon_class);
 		$('#icon_class').trigger('change');
 		$('#parent_id').val(node.parent);

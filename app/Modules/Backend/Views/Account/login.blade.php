@@ -53,7 +53,7 @@
 			<a href="#" class="float-right">Quên mật khẩu?</a>
 		</div>        
 	</form>
-	<p class="text-center"><a href="#">Đăng ký tài khoản</a></p>
+	{{-- <p class="text-center"><a href="#">Đăng ký tài khoản</a></p> --}}
 </div>
 </body>
 </html>                                		                            
